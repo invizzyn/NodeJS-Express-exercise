@@ -44,6 +44,7 @@ router.get('/:id/edit', auth, async (req, res) => {
 
 router.post('/edit', auth, courseValidators, async (req, res) => {
     const errors = validationResult(req)
+    console.log(req.body)
     const {id} = req.body
     if (!errors.isEmpty()) {
         return res.status(422).redirect(`/courses/${id}/edit?allow=true`)
